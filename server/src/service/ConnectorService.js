@@ -1,4 +1,5 @@
 'use strict';
+var db = require('../utils/db.js');
 
 
 /**
@@ -47,16 +48,11 @@ exports.getconnectorById = function(connectorId) {
  * returns Connector
  **/
 exports.getconnectors = function() {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "sourceID" : "sourceID",
-  "targetID" : "targetID",
-  "id" : "id",
-  "content" : "content"
-};
+  return new Promise(async function(resolve, reject) {
+    console.log('inside get all connectors service')
+    var examples = await db.selectConnectors();
     if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+      resolve(examples);
     } else {
       resolve();
     }

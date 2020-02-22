@@ -25,7 +25,7 @@ COMMENT ON TABLE public.nodes
 CREATE TABLE IF NOT EXISTS public.connectors
 (
     id integer NOT NULL DEFAULT nextval('connectors_id_seq'::regclass),
-    connetorbody json,
+    connectorbody json,
     sourcenode bigint,
     targetnode bigint,
     CONSTRAINT connectors_pkey PRIMARY KEY (id)

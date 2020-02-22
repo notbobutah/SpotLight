@@ -11,7 +11,7 @@ import { NodeModel, ConnectorModel } from '@syncfusion/ej2-angular-diagrams';
 export class RestApiService {
   
   // Define API
-  apiURL = 'http://localhost:3000';
+  apiURL = 'http://127.0.0.1:8080/api/v1';
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +29,7 @@ export class RestApiService {
   // HttpClient API get() method => Fetch NodeModels list
   getNodeModels(): Observable<NodeModel[]> {
       console.log("Calling JSON server")
-    return this.http.get<NodeModel[]>(this.apiURL + '/nodes')
+    return this.http.get<NodeModel[]>(this.apiURL + '/node')
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -38,7 +38,7 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch NodeModel
   getNodeModel(id): Observable<NodeModel> {
-    return this.http.get<NodeModel>(this.apiURL + '/nodes/' + id)
+    return this.http.get<NodeModel>(this.apiURL + '/node/' + id)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -75,7 +75,7 @@ export class RestApiService {
     // HttpClient API get() method => Fetch NodeModels list
     getConnectionModels(): Observable<ConnectorModel[]> {
         console.log("Calling JSON server")
-      return this.http.get<ConnectorModel[]>(this.apiURL + '/connectors')
+      return this.http.get<ConnectorModel[]>(this.apiURL + '/connector')
       .pipe(
         retry(1),
         catchError(this.handleError)
@@ -84,7 +84,7 @@ export class RestApiService {
   
     // HttpClient API get() method => Fetch NodeModel
     getConnectionModel(id): Observable<ConnectorModel> {
-      return this.http.get<ConnectorModel>(this.apiURL + '/connectors/' + id)
+      return this.http.get<ConnectorModel>(this.apiURL + '/connector/' + id)
       .pipe(
         retry(1),
         catchError(this.handleError)

@@ -87,9 +87,21 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
       }', 50, 50);
 
 -- add connector data       
-INSERT INTO public.connectors(connetorbody, sourcenode, targetnode)
+INSERT INTO public.connectors(connectorbody, sourcenode, targetnode)
 	VALUES ('{
         "id": "connector1",
         "sourceID": "Start",
         "targetID": "Init"
       }', 101, 102);
+INSERT INTO public.connectors(connectorbody, sourcenode, targetnode)
+	VALUES ('{
+        "id": "connector2",
+        "sourceID": "Start",
+        "targetID": "Init"
+      }', 101, 102);
+INSERT INTO public.connectors(connectorbody, sourcenode, targetnode)
+	VALUES ('{
+        "id": "connector3",
+        "sourceID": "Start",
+        "targetID": "Init"
+      }', 101, 102);      

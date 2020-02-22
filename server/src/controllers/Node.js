@@ -26,11 +26,15 @@ module.exports.getNodeById = function getNodeById (req, res, next) {
 };
 
 module.exports.getNodes = function getNodes (req, res, next) {
+  console.log('inside get all nodes controller')
   Node.getNodes()
     .then(function (response) {
+      console.log('inside get all nodes controller')
       utils.writeJson(res, response);
     })
     .catch(function (response) {
+      console.log('inside get all nodes controller catch: '+response)
+
       utils.writeJson(res, response);
     });
 };
