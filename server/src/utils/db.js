@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+var fs = require('fs');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -82,6 +83,29 @@ const updateConnector = (id, jsonBody) => {
   }
     )
 }
+createDDL = function () {
+    var sql = fs.readFileSync('spotlight.ddl.sql').toString();
+
+        client.query(sql, function(err, result){
+            done();
+            if(err){
+                console.log('error: ', err);
+                process.exit(1);
+            }
+        });
+}
+loadData = function () {
+    var sql = fs.readFileSync('spotlight.data.sql').toString();
+
+        client.query(sql, function(err, result){
+            done();
+            if(err){
+                console.log('error: ', err);
+                process.exit(1);
+            }
+        });
+}
+
 module.exports = {
     selectConnectors,
     selectNodes,

@@ -14,9 +14,9 @@ echo      docker exec -it spotlight psql -U postgres
 
 echo Creating spotlight schema objects in database
 export PGPASSWORD=spotlight
-psql -h 172.17.0.2 -U postgres -f spotlight.ddl.sql 
+psql -h 172.17.0.2 -U postgres -f src/sql/spotlight.ddl.sql 
 echo Creating spotlight data in database
-psql -h 172.17.0.2 -U postgres -f spotlight.data.sql 
+psql -h 172.17.0.2 -U postgres -f src/sql/spotlight.data.sql 
 
 # pull pgadmin docker image and start
 docker pull dpage/pgadmin4
