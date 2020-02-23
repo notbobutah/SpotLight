@@ -4,6 +4,9 @@
 var fs = require('fs'),
     path = require('path'),
     http = require('http');
+var db = require('./utils/db.js')
+
+var dbstate = db.initDB();
 
 var app = require('connect')();
 var swaggerTools = require('swagger-tools');

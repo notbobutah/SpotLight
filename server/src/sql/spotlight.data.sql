@@ -1,4 +1,4 @@
-INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
+INSERT INTO nodes(nodebody, "offsetX", "offsetY")
 	VALUES ( '{
         "id": "Start",
         "offsetY": 50,
@@ -13,7 +13,7 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
         }
       }', 50, 50);
 
-INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
+INSERT INTO nodes(nodebody, "offsetX", "offsetY")
 	VALUES ( '{
         "id": "Init",
         "offsetY": 100,
@@ -27,7 +27,7 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
           "shape": "Process"
         }
       }', 50, 50);
-INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
+INSERT INTO nodes(nodebody, "offsetX", "offsetY")
 	VALUES ( '{
         "id": "Condition",
         "offsetY": 250,
@@ -41,7 +41,7 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
           "shape": "Decision"
         }
       }', 50, 50);
-INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
+INSERT INTO nodes(nodebody, "offsetX", "offsetY")
 	VALUES ( '{
         "id": "Print",
         "offsetY": 350,
@@ -56,7 +56,7 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
           "shape": "PreDefinedProcess"
         }
       }', 50, 50);
-INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
+INSERT INTO nodes(nodebody, "offsetX", "offsetY")
 	VALUES ( '{
         "id": "Increment",
         "offsetY": 450,
@@ -71,7 +71,7 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
           "shape": "Process"
         }
       }', 50, 50);
-INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
+INSERT INTO nodes(nodebody, "offsetX", "offsetY")
 	VALUES ( '{
         "id": "End",
         "offsetY": 550,
@@ -87,19 +87,19 @@ INSERT INTO public.nodes(nodebody, "offsetX", "offsetY")
       }', 50, 50);
 
 -- add connector data       
-INSERT INTO public.connectors(connectorbody, sourcenode, targetnode)
+INSERT INTO connectors(connectorbody, sourcenode, targetnode)
 	VALUES ('{
         "id": "connector1",
         "sourceID": "Start",
         "targetID": "Init"
       }', 101, 102);
-INSERT INTO public.connectors(connectorbody, sourcenode, targetnode)
+INSERT INTO connectors(connectorbody, sourcenode, targetnode)
 	VALUES ('{
         "id": "connector2",
         "sourceID": "Start",
         "targetID": "Init"
       }', 101, 102);
-INSERT INTO public.connectors(connectorbody, sourcenode, targetnode)
+INSERT INTO connectors(connectorbody, sourcenode, targetnode)
 	VALUES ('{
         "id": "connector3",
         "sourceID": "Start",

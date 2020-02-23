@@ -1,7 +1,7 @@
 #!/bin/bash
 docker pull postgres
 mkdir -p $HOME/docker/volumes/postgres
-docker run --rm --name spotlight -e POSTGRES_PASSWORD=spotlight -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres
+docker run --rm --name spotlight_db_1 -e POSTGRES_PASSWORD=spotlight -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres
 docker ps -aqf "name=spotlight"
 dbip="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' spotlight)"
 echo +++++++++++++++++++++++++++++

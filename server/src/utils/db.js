@@ -5,10 +5,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  password: 'spotlight',
+  user: process.env.POSTGRES_USER,
+  host: process.env.POSTGRES_SERVER,
+  port: process.env.POSTGRES_PORT,
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
   port: 5432,
 })
 
@@ -20,11 +21,15 @@ selectNodes = function() {
     return new Promise(async function(resolve, reject) {
         console.log('inside get all nodes db')
         let rtnArray = [];
-        await pool.query('SELECT * FROM nodes',  (error, results) => {
+        await pool.query('SELECT * FROM nodes', async (error, results) => {
                 if (error) {
-                    throw error
+                    await createDDL();
+                    return;
                 }
-               Object.keys(results.rows).forEach(function(key) {
+                if(results.rows.length <= 0){
+                    await this.loadData();
+                }
+                Object.keys(results.rows).forEach(function(key) {
                 let customnode = results.rows[key]['nodebody'];
                 customnode['addInfo'] = results.rows[key]['id'];
                 rtnArray.push(results.rows[key]['nodebody']);
@@ -39,9 +44,13 @@ selectConnectors  = function() {
     return new Promise(async function(resolve, reject) {
     console.log('inside get all connectorss db')
     let rtnArray = [];
-        await pool.query('SELECT * FROM connectors', (error, results) => {
+        await pool.query('SELECT * FROM connectors', async (error, results) => {
             if (error) {
-                throw error
+                await this.createDDL();
+                return
+            } 
+            if(results.rows.length <= 0){
+                await this.loadData();
             }
             Object.keys(results.rows).forEach(function(key) {
                 let customnode = results.rows[key]['connectorbody'];
@@ -84,31 +93,48 @@ const updateConnector = (id, jsonBody) => {
     )
 }
 createDDL = function () {
-    var sql = fs.readFileSync('spotlight.ddl.sql').toString();
+    console.log("Running createDDL function")
+    var sql = fs.readFileSync('sql/spotlight.ddl.sql').toString();
+    console.log("------------ Loaded DDL file:")
 
-        client.query(sql, function(err, result){
-            done();
+        pool.query(sql, function(err, result){
             if(err){
-                console.log('error: ', err);
-                process.exit(1);
+                console.log('--------- DDL error: ', err);
+                // process.exit(1001);
+                throw err
             }
         });
 }
 loadData = function () {
-    var sql = fs.readFileSync('spotlight.data.sql').toString();
+    console.log("Running loadData function")
+    var sql = fs.readFileSync('sql/spotlight.data.sql').toString();
+    console.log("Loaded data file:")
 
-        client.query(sql, function(err, result){
-            done();
+        pool.query(sql, function(err, result){
             if(err){
-                console.log('error: ', err);
-                process.exit(1);
+                console.log('Data load error: ', err);
+                // process.exit(1000);
+                throw err
+            }
+        });1
+}
+initDB = async function () {
+    await createDDL();
+
+    await pool.query('SELECT * FROM nodes', async (error, results) => {
+            if (error) {
+                throw error;
+            }
+            if(results.rows.length <= 0){
+                await loadData();
             }
         });
-}
+};
 
 module.exports = {
     selectConnectors,
     selectNodes,
     updateConnector,
-    updateNode
+    updateNode,
+    initDB
 }
