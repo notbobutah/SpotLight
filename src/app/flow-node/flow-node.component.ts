@@ -31,23 +31,24 @@ export class FlowNodeComponent implements OnInit {
         let droppable: Droppable = new Droppable( this.diagramcanvas, {
             drop: (e: DropEventArgs) => {
               console.log("inside droppable event")
-                e.droppedElement.querySelector('.drag').textContent = 'Dropped';
+                // e.droppedElement.querySelector('.drag').textContent = 'Dropped';
             }
         });
     }
-    public dragEnter(args: IDragEnterEventArgs): void {
-      console.log("DragEnter for component");
-      // let obj: NodeModel = args.element as NodeModel;
-      // if (obj instanceof Node) {
-      //   let oWidth: number = obj.width;
-      //   let oHeight: number = obj.height;
-      //   let ratio: number = 100 / obj.width;
-      //   obj.width = 100;
-      //   obj.height *= ratio;
-      //   obj.offsetX += (obj.width - oWidth) / 2;
-      //   obj.offsetY += (obj.height - oHeight) / 2;
-      //   obj.style = { fill: '#357BD2', strokeColor: 'white' };
-      // }
+    public onClick(args: IDragEnterEventArgs): void {
+      console.log("onClick for component");
+      let nd = args.element;
+      let props = args.element["properties"];
+      let nodemodel = { 
+             "id": props['wrapper']['id'], 
+              "addInfo": props['addInfo'],
+              "offsetY": props['wrapper']['bounds']['y'], 
+              "offsetX": props['wrapper']['bounds']['x'], 
+              "annotations": [{ "content": props['annotations'][0]['properties']['content'] }], 
+             "shape": nd['shape']['properties']
+          }
+        this.updatenodeDetails(nodemodel);
+      console.dir(nodemodel)
     }
   
           public nodeDefaults(obj: NodeModel) : NodeModel {
@@ -85,8 +86,9 @@ export class FlowNodeComponent implements OnInit {
               })
           }  
 
-          updatenodeDetails() {
-              this.restApi.updateNodeModel(this.nodeDetails.id, this.nodeDetails).subscribe(data => {
+          updatenodeDetails(nodeupdate) {
+              console.log("Inside update node :", nodeupdate);
+              this.restApi.updateNodeModel(nodeupdate.addInfo, nodeupdate).subscribe(data => {
               })
           }
           addConnectionDetails(datanodeDetails) {

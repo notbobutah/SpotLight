@@ -47,7 +47,7 @@ export class RestApiService {
 
   // HttpClient API post() method => Create NodeModel
   createNodeModel(nodeModel): Observable<NodeModel> {
-    return this.http.post<NodeModel>(this.apiURL + '/nodes', JSON.stringify(nodeModel), this.httpOptions)
+    return this.http.post<NodeModel>(this.apiURL + '/node', JSON.stringify(nodeModel), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -56,7 +56,7 @@ export class RestApiService {
 
   // HttpClient API put() method => Update NodeModel
   updateNodeModel(id, nodeModel): Observable<NodeModel> {
-    return this.http.put<NodeModel>(this.apiURL + '/nodes/' + id, JSON.stringify(nodeModel), this.httpOptions)
+    return this.http.put<any>(this.apiURL + '/node/' + id, JSON.stringify(nodeModel), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -65,7 +65,7 @@ export class RestApiService {
 
   // HttpClient API delete() method => Delete NodeModel
   deleteNodeModel(id){
-    return this.http.delete<NodeModel>(this.apiURL + '/nodes/' + id, this.httpOptions)
+    return this.http.delete<NodeModel>(this.apiURL + '/node/' + id, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -93,7 +93,7 @@ export class RestApiService {
   
     // HttpClient API post() method => Create NodeModel
     createConnectionModel(connModel): Observable<ConnectorModel> {
-      return this.http.post<ConnectorModel>(this.apiURL + '/nodes', JSON.stringify(connModel), this.httpOptions)
+      return this.http.post<ConnectorModel>(this.apiURL + '/node', JSON.stringify(connModel), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

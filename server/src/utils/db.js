@@ -63,18 +63,15 @@ selectConnectors  = function() {
 }
 
 const updateNode = (id, jsonBody) => {
-    pool.connect((err, client, release) => {
-        if (err) {
-            return console.error('Error acquiring client', err.stack)
-            }
-      pool.query('UPDATE public.nodes	SET id=?, nodebody=?, "offsetX"=?, "offsetY"=?    WHERE <condition>', (error, results) => {
-          release()
+    console.log('inside updare node db call:',jsonBody)
+    const text = 'UPDATE nodes SET nodebody=$1   WHERE id=$2'
+    const values = [jsonBody,id]
+      pool.query(text, values, (error, results) => {
             if (error) {
                 throw error
             }
-        return json(results.rows)
+        return JSON.stringify(results.rows)
       })
-  })
 }
   
 const updateConnector = (id, jsonBody) => {

@@ -69,9 +69,10 @@ exports.getNodes = function() {
  * body Node Node object that needs to be added to the diagram
  * no response value expected for this operation
  **/
-exports.updateNode = function(body) {
+exports.updateNode = function(NodeId, body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    let result = db.updateNode(NodeId, body);
+    resolve(result);
   });
 }
 

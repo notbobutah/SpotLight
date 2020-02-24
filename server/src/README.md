@@ -17,3 +17,11 @@ open http://localhost:8080/docs
 ```
 
 This project leverages the mega-awesome [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware which does most all the work.
+```
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=spotlight
+export POSTGRES_DB=postgres
+export POSTGRES_SERVER=spotlight_db_1
+export POSTGRES_PORT=5432
+export DATABASE_URL=postgres://postgres:spotlight@postgres:5432/postgres
+```

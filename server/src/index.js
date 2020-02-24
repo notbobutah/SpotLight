@@ -5,6 +5,7 @@ var fs = require('fs'),
     path = require('path'),
     http = require('http');
 var db = require('./utils/db.js')
+var cors = require('cors')
 
 var dbstate = db.initDB();
 
@@ -28,9 +29,10 @@ var swaggerDoc = jsyaml.safeLoad(spec);
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE,OPTIONS');
   next();
 });
+app.use(cors())
 
   // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {

@@ -40,12 +40,18 @@ module.exports.getNodes = function getNodes (req, res, next) {
 };
 
 module.exports.updateNode = function updateNode (req, res, next) {
+  console.log('inside update node controller')
+
   var body = req.swagger.params['body'].value;
-  Node.updateNode(body)
+  var nodeId = req.swagger.params['NodeId'].value;
+  Node.updateNode(nodeId,body)
     .then(function (response) {
+      console.log('iupdate node response')
+      console.log(result)
       utils.writeJson(res, response);
     })
     .catch(function (response) {
+      console.log('catch update node response')
       utils.writeJson(res, response);
     });
 };
