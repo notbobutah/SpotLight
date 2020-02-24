@@ -62,6 +62,14 @@ after the successful test started into the process of deployment coding. Build D
 
 Then started into docker-compose build to create a single point of build and deploy for the project.
 
+* Sunday 02/23/2020 
+#### 10 am
+Built docker-compose to build and deploy all containers 
+Added database DDL execution to create tables in fresh database on startup
+Added data loading to ensure that the diagram has working nodes in the database after fresh startup
+Worked on local kuberentes Rancher deployment to get the docker images to deploy into kubernetes cluster
+copied repo to Gitlab from GitHub to use their runners, problem with GitLab free tier account locked repository in read only mode
+
 ```
 docker-compose up --build
 Starting spotlight_postgres_1
@@ -71,4 +79,12 @@ Creating spotlight-fe
 Starting spotlight_spotlight-be_1
 Starting spotlight-fe
 ```
-Then wrote this file.
+#### 4 pm
+Resolved javascript event capture for node moves
+Fixed minor cors error when calling POST and PUT
+Updating database based on new coordinates of FlowNode object based on event firing, calling service and executing update sql
+tested updating from the Swagger page, experiment to add new node to diagram
+
+* Monday 02/24/2020 
+#### 10 am
+Worked on Rancher Kubernetes deployment
