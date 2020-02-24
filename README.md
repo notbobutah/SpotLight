@@ -86,5 +86,8 @@ Updating database based on new coordinates of FlowNode object based on event fir
 tested updating from the Swagger page, experiment to add new node to diagram
 
 * Monday 02/24/2020 
-#### 10 am
+#### 7 am
+Clean up docker compose and test to ensure everything is working as expected
+   found defects in some node types movement data being incorrect
+   throwing console errors for grid based click events
 Worked on Rancher Kubernetes deployment
