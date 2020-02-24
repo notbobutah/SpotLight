@@ -6,6 +6,8 @@ This is a sample project to demostrate full stack development and deployment
 The project uses:
 
 * Node 10
+* Swagger UI
+    * <img src="assets/spotlight-swagger-screen.png" alt="diagram" width="200"/>
 * Angular 7
 * SyncFusion
     * https://ej2.syncfusion.com/home/
