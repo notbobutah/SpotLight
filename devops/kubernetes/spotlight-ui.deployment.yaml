@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Initial deployment"
+  labels:
+    app: spotlight
+    component: ui
+  name: spotlight-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spotlight
+      component: ui
+  template:
+    metadata:
+      labels:
+        app: spotlight
+        component: ui
+    spec:
+      containers:
+      - image: maxbrunet/spotlight_ui:latest
+        name: spotlight-ui
+        env:
+        - name: spotlight_API_URL
+          value: http://spotlight-api:3001
+        - name: RAILS_ENV
+          value: production
+        envFrom:
+        - configMapRef:
+            name: spotlight-ui-redis-url
+        - secretRef:
+            name: spotlight-ui-secret-key
+        ports:
+        - containerPort: 3000
+        #resources:
+        #  limits:
+        #    cpu: 500m
+        #    memory: 512Mi
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 2  # non-root user

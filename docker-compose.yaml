@@ -1,0 +1,62 @@
+version: "2"
+services:
+  spotlight-be:
+    build: ./server/src
+    depends_on:
+      - db
+    links:
+      -  "db:postgres"
+      -  "db:spotlight_db_1"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: spotlight
+      POSTGRES_DB: postgres
+      POSTGRES_SERVER: db
+      POSTGRES_PORT: 5432
+      DATABASE_URL: postgres://postgres:spotlight@postgres:5432/postgres
+      NODE_ENV: test
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    command: npm start
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+  spotlight-fe: 
+      container_name: spotlight-fe  # Container name
+      build: .
+      ports: 
+        - '80:4200' # Port mapping
+      command: > 
+        bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+      depends_on:
+        - spotlight-be
+      environment:
+        SPOTLIGHT-BE: spotlight-spotlight-be_1
+
+  db:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data      
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: spotlight
+      POSTGRES_DB: postgres
+  pgadmin:
+    depends_on:
+      - db
+    image: dpage/pgadmin4
+    ports:
+      - "5050:5050"
+    environment:
+       PGADMIN_DEFAULT_EMAIL: postgres@localhost
+       PGADMIN_DEFAULT_PASSWORD: SpotLight
+       PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'True'
+      #  PGADMIN_CONFIG_LOGIN_BANNER: "Spotlight local developer tools"
+       PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 10 
+volumes:
+  db-data:
+    driver: local

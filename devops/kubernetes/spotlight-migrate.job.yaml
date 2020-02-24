@@ -1,0 +1,29 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: spotlight
+    component: migrate
+  name: spotlight-migrate
+spec:
+  template:
+    metadata:
+      labels:
+        app: spotlight
+        component: migrate
+    spec:
+      containers:
+      - image: maxbrunet/spotlight_api:latest
+        name: spotlight-migrate
+        command: ["rake", "db:migrate"]
+        env:
+        - name: RAILS_ENV
+          value: production
+        envFrom:
+        - secretRef:
+            name: spotlight-api-database-url
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 2  # non-root user
+      restartPolicy: OnFailure

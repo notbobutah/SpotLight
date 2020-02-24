@@ -1,0 +1,132 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Line Source,Line Destination,Source Arrow,Destination Arrow,Text Area 1
+1,Page,,,,,,,,,Network Concept
+2,Process,Flowchart Shapes,1,,,,,,,
+3,Process,Flowchart Shapes,1,,,,,,,Kiosk
+4,Process,Flowchart Shapes,1,,,,,,,Kiosk
+5,Process,Flowchart Shapes,1,,,,,,,Kiosk
+6,Process,Flowchart Shapes,1,,,,,,,Kiosk
+7,Process,Flowchart Shapes,1,,,,,,,Kiosk
+8,Process,Flowchart Shapes,1,,,,,,,Kiosk
+9,Process,Flowchart Shapes,1,,,,,,,
+10,Process,Flowchart Shapes,1,,,,,,,Kiosk
+11,Process,Flowchart Shapes,1,,,,,,,Kiosk
+12,Process,Flowchart Shapes,1,,,,,,,Kiosk
+13,Process,Flowchart Shapes,1,,,,,,,Kiosk
+14,Process,Flowchart Shapes,1,,,,,,,Kiosk
+15,Process,Flowchart Shapes,1,,,,,,,Kiosk
+16,Process,Flowchart Shapes,1,,,,,,,
+17,Process,Flowchart Shapes,1,,,,,,,Kiosk
+18,Process,Flowchart Shapes,1,,,,,,,Kiosk
+19,Process,Flowchart Shapes,1,,,,,,,Kiosk
+20,Process,Flowchart Shapes,1,,,,,,,Kiosk
+21,Process,Flowchart Shapes,1,,,,,,,Kiosk
+22,Process,Flowchart Shapes,1,,,,,,,Kiosk
+23,Process,Flowchart Shapes,1,,,,,,,Ad Builder Website Add Content Arrange Content Upload media assets Write Copy Evaluate/Approve Ads
+24,Process,Flowchart Shapes,1,,,,,,,Ad Buyer Website Location Identificatoin Target Market Result Measurement Responsibility for Ad
+25,Process,Flowchart Shapes,1,,,,,,,Event Website Create event Manage event Invite to event market event Track event response
+26,Process,Flowchart Shapes,1,,,,,,,End User Website Evaluate Ads File Complaint Apply as ad talent Bid on creative content jobs 
+27,Process,Flowchart Shapes,1,,,,,,,Corkboard Platform Houses the business logic insire of PaaS web service used by the varius tools
+28,Database,Flowchart Shapes,1,,,,,,,Database Storage of all things Corkboard
+29,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+30,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+31,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+32,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+33,Rectangle,Geometric Shapes,1,,,,,,,"Kiosk Manager Tracks INventory Tracks status Issues service tickets Manages schedule
+Onboarding process"
+34,Rectangle,Geometric Shapes,1,,,,,,,"Kiosk Manager Tracks INventory Tracks status Issues service tickets Manages schedule
+Onboarding process"
+35,Rectangle,Geometric Shapes,1,,,,,,,"Kiosk Manager Tracks INventory Tracks status Issues service tickets Manages schedule
+Onboarding process"
+36,Text,Standard,1,,,,,,,Region 2
+37,Text,Standard,1,,,,,,,Region 3
+38,Text,Standard,1,,,,,,,Region 1
+39,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+40,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+41,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+42,Double Arrow East-West,Geometric Shapes,1,,,,,,,
+43,Page,,,,,,,,,Display Process detail
+44,Process,Flowchart Shapes,43,,,,,,,CorkBoard Device
+45,Process,Flowchart Shapes,43,,,,,,,Kiosk Configured Chrome Browser
+46,Document,Flowchart Shapes,43,,,,,,,Ad Document
+47,Document,Flowchart Shapes,43,,,,,,,Ad Images
+48,Document,Flowchart Shapes,43,,,,,,,Ad Images
+49,Document,Flowchart Shapes,43,,,,,,,Ad Images
+50,Document,Flowchart Shapes,43,,,,,,,Ad Images
+51,Process,Flowchart Shapes,43,,,,,,,Screen Builder event driven process
+52,Process,Flowchart Shapes,43,,,,,,,Screen Builder
+53,Process,Flowchart Shapes,43,,,,,,,Screen Buffer
+54,Process,Flowchart Shapes,43,,,,,,,Screen Scheduler
+55,Process,Flowchart Shapes,43,,,,,,,Buffer Manager
+56,Process,Flowchart Shapes,43,,,,,,,Timer for display Update
+57,Rectangle,Geometric Shapes,43,,,,,,,Build Virtual DOM from html and images
+58,Process,Flowchart Shapes,43,,,,,,,Read Files
+59,Process,Flowchart Shapes,43,,,,,,,Render ad docs to DOM
+60,Process,Flowchart Shapes,43,,,,,,,Add Dom to Buffer
+61,Line,,43,,,46,58,None,Arrow,
+62,Line,,43,,,47,58,None,Arrow,
+63,Line,,43,,,58,59,None,Arrow,
+64,Line,,43,,,59,60,None,Arrow,
+65,Line,,43,,,60,53,None,Arrow,
+66,Line,,43,,,53,55,None,Arrow,
+67,Line,,43,,,52,51,None,Arrow,
+68,Line,,43,,,52,57,None,Arrow,
+69,Page,,,,,,,,,phase 1- Wifi only
+70,Process,Flowchart Shapes,69,,,,,,,Kiosk
+71,Process,Flowchart Shapes,69,,,,,,,Ad Builder Website Add Content Arrange Content Upload media assets Write Copy Evaluate/Approve Ads
+72,Process,Flowchart Shapes,69,,,,,,,Ad Buyer Website Location Identificatoin Target Market Result Measurement Responsibility for Ad
+73,Process,Flowchart Shapes,69,,,,,,,Event Website Create event Manage event Invite to event market event Track event response
+74,Process,Flowchart Shapes,69,,,,,,,End User Website Evaluate Ads File Complaint Apply as ad talent Bid on creative content jobs 
+75,Process,Flowchart Shapes,69,,,,,,,CC
+76,Database,Flowchart Shapes,69,,,,,,,
+77,Process,Flowchart Shapes,69,,,,,,,start up sctips : CC.com?id=UUID
+78,User Image,User Images,69,,,,,,,
+79,Text,Standard,69,,,,,,,Admin
+80,User Image,User Images,69,,,,,,,
+81,Text,Standard,69,,,,,,,View only user
+82,Database,Flowchart Shapes,69,,,,,,,
+83,Database,Flowchart Shapes,69,,,,,,,
+84,Database,Flowchart Shapes,69,,,,,,,
+85,Process,Flowchart Shapes,69,,,,,,,Kiosk Monitor Kiosk status Remote to Kiosk Push Data To Kiosk (file)
+86,Line,,69,,,75,70,None,Arrow,
+87,Line,,69,,,75,71,Arrow,Arrow,
+88,Line,,69,,,75,72,Arrow,Arrow,
+89,Line,,69,,,75,73,Arrow,Arrow,
+90,Line,,69,,,75,74,Arrow,Arrow,
+91,Line,,69,,,76,74,None,Arrow,
+92,Line,,69,,,84,71,None,Arrow,
+93,Line,,69,,,83,72,None,Arrow,
+94,Line,,69,,,82,73,None,Arrow,
+95,Line,,69,,,75,85,Arrow,Arrow,
+96,Page,,,,,,,,,Fast Deployment
+97,Process,Flowchart Shapes,96,,,,,,,Revive Adserver Docker Image
+98,Database,Flowchart Shapes,96,,,,,,,MySQL
+99,Process,Flowchart Shapes,96,,,,,,,Simulated Pi Ubuntu DockerImage
+100,Process,Flowchart Shapes,96,,,,,,,WebServer
+101,Process,Flowchart Shapes,96,,,,,,,WebBrowser
+102,Process,Flowchart Shapes,96,,,,,,,Shell Scripts
+103,Process,Flowchart Shapes,96,,,,,,,Publish Ad Campaign
+104,Page,,,,,,,,,Page 5
+105,Text,Standard,104,,,,,,,SpotLight Application Diagram
+106,Process,Flowchart Shapes,104,,,,,,,Spotlight FE Angular 7 SyncFusion
+107,Document,Flowchart Shapes,104,,,,,,,Browser
+108,Process,Flowchart Shapes,104,,,,,,,App Component
+109,Process,Flowchart Shapes,104,,,,,,,FlowChart Component
+110,Process,Flowchart Shapes,104,,,,,,,REST Service
+111,Process,Flowchart Shapes,104,,,,,,,REST API Server NodeJS  Swagger UI Postgres Connector
+112,Process,Flowchart Shapes,104,,,,,,,GET /api/v1/node getNodes SELECT * FROM NODES
+113,Direct Access Storage (Hard Disk),Flowchart Shapes,104,,,,,,,Postgres
+114,Process,Flowchart Shapes,104,,,,,,,GET /api/v1/connector getConnectors SELECT * FROM CONNECTORS
+115,Process,Flowchart Shapes,104,,,,,,,PUT /api/v1/node/{id} updateNode UPDATE NODES WHERE id
+116,Process,Flowchart Shapes,104,,,,,,,PUT /api/v1/connector/{ID} updateConnector UPDATE CONNECTORS WHERE id
+117,Process,Flowchart Shapes,104,,,,,,,onInit
+118,Process,Flowchart Shapes,104,,,,,,,onMove
+119,Line,,104,,,107,106,None,Arrow,
+120,Line,,104,,,109,110,None,Arrow,
+121,Line,,104,,,110,112,None,Arrow,
+122,Line,,104,,,110,114,None,Arrow,
+123,Line,,104,,,112,113,None,Arrow,
+124,Line,,104,,,114,113,None,Arrow,
+125,Line,,104,,,,113,None,Arrow,
+126,Line,,104,,,116,113,None,Arrow,
+127,Line,,104,,,110,,None,Arrow,
+128,Line,,104,,,110,116,None,Arrow,

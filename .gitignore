@@ -7,9 +7,12 @@
 
 # dependencies
 /node_modules
+/server/src/node_modules
+/server/devops/.terraform
 
 # IDEs and editors
 /.idea
+.terraform
 .project
 .classpath
 .c9/
