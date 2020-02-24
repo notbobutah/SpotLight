@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: spotlight
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: spotlight
+    #certmanager.k8s.io/issuer: letsencrypt-prod
+    #certmanager.k8s.io/acme-challenge-type: http01
+spec:
+  #tls:
+  #- hosts:
+  #  - spotlight.com
+  #  secretName: spotlight-com-tls
+  rules:
+  - http:
+      paths:
+      - path: /api/*
+        backend:
+          serviceName: spotlight-api
+          servicePort: 3001
+      - path: /*
+        backend:
+          serviceName: spotlight-ui
+          servicePort: 3000
+    #host: spotlight.com
