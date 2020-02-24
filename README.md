@@ -18,6 +18,27 @@ The project uses:
 Project goal:
 To generate a process flow diagram supported by a restful server and a postgres database and deploy the project into a hosted environment using Terrafom.
 
+## Testing this project
+If you would like to spin up this project locally to see it in action follow these steps:
+* clone the repository
+```
+git clone https://github.com/notbobutah/SpotLight.git
+```
+* exeute docker-compose from the project root.
+```
+docker-compose up --build
+```
+```
+Starting spotlight_postgres_1
+Starting spotlight_pgadmin_1
+Creating spotlight_spotlight-be_1
+Creating spotlight-fe
+Starting spotlight_spotlight-be_1
+Starting spotlight-fe
+```
+* Visit http://localhost in a browser
+
+
 ## Timeline of build
 * On Thursday 02/20/2020 
 ##### 7 pm I conceived of this project
