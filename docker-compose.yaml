@@ -27,7 +27,7 @@ services:
       container_name: spotlight-fe  # Container name
       build: .
       ports: 
-        - '4200:4200' # Port mapping
+        - '80:4200' # Port mapping
       command: > 
         bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
       depends_on:
@@ -45,18 +45,18 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: spotlight
       POSTGRES_DB: postgres
-  # pgadmin:
-  #   depends_on:
-  #     - db
-  #   image: dpage/pgadmin4
-  #   ports:
-  #     - "5050:5050"
-  #   environment:
-  #      PGADMIN_DEFAULT_EMAIL: postgres@localhost
-  #      PGADMIN_DEFAULT_PASSWORD: SpotLight
-  #      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'True'
-  #      PGADMIN_CONFIG_LOGIN_BANNER: "Spotlight local developer tools"
-  #      PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 10 
+  pgadmin:
+    depends_on:
+      - db
+    image: dpage/pgadmin4
+    ports:
+      - "5050:5050"
+    environment:
+       PGADMIN_DEFAULT_EMAIL: postgres@localhost
+       PGADMIN_DEFAULT_PASSWORD: SpotLight
+       PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'True'
+      #  PGADMIN_CONFIG_LOGIN_BANNER: "Spotlight local developer tools"
+       PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 10 
 volumes:
   db-data:
     driver: local
