@@ -24,7 +24,7 @@ If you would like to spin up this project locally to see it in action follow the
 ```
 git clone https://github.com/notbobutah/SpotLight.git
 ```
-* exeute docker-compose from the project root.
+* execute docker-compose from the project root.
 ```
 docker-compose up --build
 ```
@@ -38,6 +38,14 @@ Starting spotlight-fe
 ```
 * Visit http://localhost in a browser
 
+### create environment variables for local execution:
+```
+export POSTGRES_USER=postgres
+export POSTGRES_SERVER=172.18.0.2
+export POSTGRES_PORT=5432
+export POSTGRES_DB=postgres
+export POSTGRES_PASSWORD=spotlight
+```
 
 ## Timeline of build
 * On Thursday 02/20/2020 
@@ -92,7 +100,12 @@ Then started into docker-compose build to create a single point of build and dep
 #### 10 am
 Built docker-compose to build and deploy all containers 
 Added database DDL execution to create tables in fresh database on startup
-Added data loading to ensure that the diagram has working nodes in the database after fresh startup
+Added data loading to en2053  export POSTGRES_USER=postgres
+ 2054  export POSTGRES_SERVER=172.18.0.2
+ 2055  export POSTGRES_PORT=5432
+ 2056  export POSTGRES_DB=postgres
+ 2057  export POSTGRES_PASSWORD=spotlight
+sure that the diagram has working nodes in the database after fresh startup
 Worked on local kuberentes Rancher deployment to get the docker images to deploy into kubernetes cluster
 copied repo to Gitlab from GitHub to use their runners, problem with GitLab free tier account locked repository in read only mode
 

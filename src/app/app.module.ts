@@ -5,13 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
  
 import { AppComponent } from './app.component';
 import { FlowNodeComponent } from './flow-node/flow-node.component';
+
+import { StoreModule } from '@ngrx/store';
+import FlowNodeReducer from './flow-node/flow-node.reducer'
  
 /**
  * Module
  */
 @NgModule({
   imports: [
-      BrowserModule, DiagramModule, HttpClientModule
+      BrowserModule, DiagramModule, HttpClientModule, StoreModule.forRoot({ FlowNodes: FlowNodeReducer })
   ],
   declarations: [
     AppComponent, 
