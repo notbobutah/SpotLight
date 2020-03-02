@@ -22,6 +22,7 @@ main() {
     compute.googleapis.com
     serviceusage.googleapis.com
     cloudresourcemanager.googleapis.com
+         
   )
   local -a firewall_rules=()
 

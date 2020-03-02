@@ -10,9 +10,10 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:8080"
+host: "localhost"
 basePath: "/api/v1"
 schemes:
+- "https"
 - "http"
 paths:
   /node:
@@ -20,8 +21,8 @@ paths:
       tags:
       - "Node"
       summary: "get all nodes"
-      description: "Returns an array of Nodes"
-      operationId: "getNodes"
+      description: "Returns an array pf Nodes"
+      operationId: "get_nodes"
       produces:
       - "application/xml"
       - "application/json"
@@ -37,13 +38,13 @@ paths:
           description: "Node not found"
       security:
       - api_key: []
-      x-swagger-router-controller: "Node"
+      x-swagger-router-controller: "swagger_server.controllers.node_controller"
     post:
       tags:
       - "Node"
       summary: "Add a new node to the database"
       description: ""
-      operationId: "addNode"
+      operationId: "add_node"
       consumes:
       - "application/json"
       produces:
@@ -62,48 +63,45 @@ paths:
       - nodediagram_auth:
         - "write:nodes"
         - "read:nodes"
-      x-swagger-router-controller: "Node"
-  /node/{NodeId}:      
+      x-swagger-router-controller: "swagger_server.controllers.node_controller"
     put:
       tags:
       - "Node"
       summary: "Update an existing Node"
       description: ""
-      operationId: "updateNode"
+      operationId: "update_node"
       consumes:
       - "application/json"
+      - "application/xml"
       produces:
+      - "application/xml"
       - "application/json"
       parameters:
-      - name: "NodeId"
-        in: "path"
-        description: "ID of Node to update"
-        required: true
-        type: "integer"
       - in: "body"
         name: "body"
-        description: "Node object that needs to be updated"
+        description: "Node object that needs to be added to the diagram"
         required: true
         schema:
           $ref: "#/definitions/Node"
       responses:
-        "200":
-          description: "ok"
         "400":
           description: "Invalid ID supplied"
         "404":
           description: "Node not found"
+        "405":
+          description: "Validation exception"
       security:
       - nodediagram_auth:
         - "write:nodes"
         - "read:nodes"
-      x-swagger-router-controller: "Node"
+      x-swagger-router-controller: "swagger_server.controllers.node_controller"
+  /node/{NodeId}:
     get:
       tags:
       - "Node"
       summary: "Find Node by ID"
       description: "Returns a single Node"
-      operationId: "getNodeById"
+      operationId: "get_node_by_id"
       produces:
       - "application/xml"
       - "application/json"
@@ -125,7 +123,7 @@ paths:
           description: "Node not found"
       security:
       - api_key: []
-      x-swagger-router-controller: "Node"
+      x-swagger-router-controller: "swagger_server.controllers.node_controller"
   /connector:
     get:
       tags:
@@ -148,7 +146,7 @@ paths:
           description: "connector not found"
       security:
       - api_key: []
-      x-swagger-router-controller: "Connector"
+      x-swagger-router-controller: "swagger_server.controllers.connector_controller"
     post:
       tags:
       - "Connector"
@@ -173,7 +171,7 @@ paths:
       - nodediagram_auth:
         - "write:connectors"
         - "read:connectors"
-      x-swagger-router-controller: "Connector"
+      x-swagger-router-controller: "swagger_server.controllers.connector_controller"
     put:
       tags:
       - "Connector"
@@ -204,14 +202,14 @@ paths:
       - nodediagram_auth:
         - "write:connectors"
         - "read:connectors"
-      x-swagger-router-controller: "Connector"
+      x-swagger-router-controller: "swagger_server.controllers.connector_controller"
   /connector/{connectorId}:
     get:
       tags:
       - "Connector"
       summary: "Find connector by ID"
       description: "Returns a single connector"
-      operationId: "getconnectorById"
+      operationId: "getconnector_by_id"
       produces:
       - "application/xml"
       - "application/json"
@@ -233,7 +231,7 @@ paths:
           description: "connector not found"
       security:
       - api_key: []
-      x-swagger-router-controller: "Connector"
+      x-swagger-router-controller: "swagger_server.controllers.connector_controller"
 securityDefinitions:
   nodediagram_auth:
     type: "oauth2"

@@ -46,7 +46,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary" {
-  name       = "lofacats-node-pool"
+  name       = "spotlight-node-pool"
   location   = data.google_compute_zones.available.names[0]
   cluster    = google_container_cluster.primary.name
   node_count = 2

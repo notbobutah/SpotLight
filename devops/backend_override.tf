@@ -1,5 +1,5 @@
 terraform {
   backend "gcs" {
-    bucket = "spotlight-deployment-kosinpb-tf-state"
+    bucket = "spotlight-deployment-dyymhm5-tf-state"
   }
 }
