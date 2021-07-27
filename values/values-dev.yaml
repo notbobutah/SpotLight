@@ -1,0 +1,73 @@
+# If private, the service will only be accessible within the VPN.
+# Set to `false` to make public API.
+private: true
+
+# This determines the resources and scaling of the deployment.
+# The following settings are adequate for most node microservices.
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
+scaling:
+  minReplicas: 2
+  maxReplicas: 4
+  averageCpuUtilization: 50
+
+# Pull secrets from the vault secret with same project name.
+# The secrets will be injected into the service environment
+# as environment variables. 
+# If set to true, the vault secret must exist or service
+# deployment will fail.
+# You can find the vault secrets here: https://vault.shared.aws.chgit.com/ui/vault/secrets/dev/list
+pullVaultSecrets: true
+
+# Service environment
+environment: "development"
+
+# Non-secret environment variables to be injected into service and job containers
+envs:
+  - name: ENV
+    value: dev
+  - name: NODE_ENV
+    value: production
+  - name: LOG_LEVEL
+    value: info
+  - name: PORT
+    value: 3000
+  - name: ENV_VAR1
+    value: 'something'
+
+# Service container routing and health probe definition
+service:
+  target: 3000
+health:
+  liveness:
+    path: /liveness
+    port: 3000
+  readiness:
+    path: /readiness
+    port: 3000
+  env:
+    path: /env
+    port: 3000
+
+# Job definition - This job runs integration tests
+# Additional values are included in
+# ../.github/workflows/deploy-feature.yml
+jobs:
+  - backoffLimit: "0"
+    command:
+      [
+        "/nodejs/bin/node",
+        "node_modules/jest/bin/jest.js",
+        "--config=jest.api.config.js",
+      ]
+    envs:
+      - name: BASE_ENDPOINT
+        value: DO NOT MOVE! - to be overwritten by deployment
+    annotations:
+      "helm.sh/hook": post-upgrade
+      "helm.sh/hook-delete-policy": before-hook-creation

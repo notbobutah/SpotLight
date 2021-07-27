@@ -31,14 +31,17 @@ export class FlowNodeComponent implements OnInit {
         let droppable: Droppable = new Droppable( this.diagramcanvas, {
             drop: (e: DropEventArgs) => {
               console.log("inside droppable event")
-                // e.droppedElement.querySelector('.drag').textContent = 'Dropped';
+                 e.droppedElement.querySelector('.drag').textContent = 'Dropped';
             }
         });
     }
     public onClick(args: IDragEnterEventArgs): void {
-      console.log("onClick for component");
+      console.log("onClick for component: ");
+      console.log(args)
+
       let nd = args.element;
-      let props = args.element["properties"];
+ 
+      let props = nd["properties"];
       let nodemodel = { 
              "id": props['wrapper']['id'], 
               "addInfo": props['addInfo'],

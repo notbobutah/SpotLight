@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { DiagramModule } from '@syncfusion/ej2-angular-diagrams';
+import { DiagramModule, SymbolPaletteModule } from '@syncfusion/ej2-angular-diagrams';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
- 
+import { AppPalletteComponent } from './flow-node/flow-pallette.component'
+
 import { AppComponent } from './app.component';
 import { FlowNodeComponent } from './flow-node/flow-node.component';
  
@@ -11,11 +12,12 @@ import { FlowNodeComponent } from './flow-node/flow-node.component';
  */
 @NgModule({
   imports: [
-      BrowserModule, DiagramModule, HttpClientModule
+      BrowserModule, DiagramModule, HttpClientModule, SymbolPaletteModule
   ],
   declarations: [
     AppComponent, 
-    FlowNodeComponent ],
+    FlowNodeComponent,
+    AppPalletteComponent ],
   bootstrap: [AppComponent],
   providers: [ ],
 })
