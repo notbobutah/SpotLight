@@ -18,6 +18,6 @@
     "dotenv": "^8.2.0",
     "js-yaml": "^3.3.0",
     "pg": "^7.18.2",
-    "swagger-tools": "0.10.1"
+    "swagger-tools": "0.10.4"
   }
 }
